@@ -1,0 +1,50 @@
+RAG stands for Retrieval-Augmented Generation.
+It combines external data retrieval with generative AI.
+Standard LLMs are limited by their training cutoff dates.
+RAG allows models to access real-time or private information.
+The process begins with a user query or prompt.
+The first step is data ingestion of various file types.
+Text files, PDFs, and HTML are common data sources.
+Documents are broken down into smaller pieces called chunks.
+Chunking prevents exceeding the LLM context window limits.
+Each chunk is converted into a mathematical vector.
+This conversion is performed by an embedding model.
+Embeddings capture the semantic meaning of the text.
+The vectors are stored in a specialized vector database.
+Popular vector databases include Pinecone, Chroma, and FAISS.
+When a user asks a question, it is also embedded into a vector.
+The system performs a similarity search in the vector DB.
+Cosine similarity is a common metric for finding relevant data.
+The most relevant chunks are retrieved from the database.
+These chunks are known as the "context" for the model.
+The original query and the context are combined into a prompt.
+This combined prompt is sent to the Large Language Model.
+The LLM uses the provided context to generate an accurate answer.
+This reduces the likelihood of "hallucinations" or false info.
+RAG systems provide citations by linking back to source chunks.
+It is more cost-effective than fine-tuning a model.
+Fine-tuning updates weights, while RAG updates the knowledge base.
+The retrieval step can be optimized using "Top-K" parameters.
+"Top-K" determines how many context chunks are retrieved.
+Hybrid search combines vector search with keyword matching.
+Re-ranking models can further refine the retrieved results.
+Metadata filtering helps narrow down searches by date or type.
+RAG architecture is highly modular and customizable.
+LangChain is a popular framework for building RAG pipelines.
+LlamaIndex is another powerful tool for data indexing.
+Data privacy is a key concern when using cloud-based LLMs.
+Local RAG can be built using Ollama and local vector stores.
+The "Lost in the Middle" phenomenon affects long contexts.
+Keeping chunks concise helps maintain high retrieval precision.
+Vector embeddings must be consistent across storage and query.
+Updating the vector DB allows the AI to "learn" new facts.
+RAG is widely used for customer support chatbots.
+It is essential for analyzing internal corporate documents.
+Semantic search understands intent rather than just keywords.
+The "Augmented" part refers to enriching the prompt.
+Evaluation frameworks like RAGAS help measure performance.
+Faithfulness and Relevancy are key metrics in RAGAS.
+Prompt engineering remains vital for the generation phase.
+RAG bridges the gap between static models and dynamic data.
+It is the industry standard for enterprise AI applications.
+End of RAG flat file overview.
