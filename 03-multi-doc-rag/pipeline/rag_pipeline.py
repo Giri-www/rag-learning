@@ -43,10 +43,30 @@ class RAGPipeline:
     
     def ask(self, query):
 
+    # Step 1: Retrieve
         retrieved_chunks = self.retriever.retrieve(query)
+        print(f"Retrieved: {len(retrieved_chunks)} chunks")
+
+        # Chunks are lists of strings — flatten and convert to dicts
+        normalized_chunks = []
+        for chunk in retrieved_chunks:
+            if isinstance(chunk, list):
+                # Join list items into a single string
+                text = ' '.join(str(item) for item in chunk if item)
+            elif isinstance(chunk, dict):
+                text = chunk.get('text', '')
+            else:
+                text = str(chunk)
+            
+            if text.strip():
+                normalized_chunks.append({'text': text.strip()})
+
+        retrieved_chunks = normalized_chunks
 
         best_chunks = self.reranker.rerank(query, retrieved_chunks)
+        print(f"Retrieved: {len(retrieved_chunks)} chunks")
 
+        # Step 4: Generate answer
         answer = self.llm.generate(query, best_chunks)
 
         return answer, best_chunks

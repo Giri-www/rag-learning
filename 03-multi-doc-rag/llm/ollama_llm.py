@@ -8,23 +8,37 @@ class OllamaLLM:
         self.model = model
 
   
+    # def _build_context(self, context_chunks: list) -> str:
+    #     """
+    #     Convert retrieved chunks into a formatted context string. ||  Format Nicely 
+    #     """
+    #     context_parts = []
+
+    #     for chunk in context_chunks:
+    #         # source = chunk.get("source", "unknown")
+    #         # page = chunk.get("page", "N/A")
+    #         # page_content = chunk.get("page_content", "")
+    #         text = chunk[0] if isinstance(chunk, list) else chunk
+
+    #         context_parts.append(text
+    #         )
+
+    #     return "\n\n".join(context_parts)
     def _build_context(self, context_chunks: list) -> str:
         """
-        Convert retrieved chunks into a formatted context string. ||  Format Nicely 
+        Convert retrieved chunks into a formatted context string for the LLM.
         """
         context_parts = []
 
         for chunk in context_chunks:
+            # handle chunk dicts safely
+            text = chunk.get("text", str(chunk))
             source = chunk.get("source", "unknown")
             page = chunk.get("page", "N/A")
-            page_content = chunk.get("page_content", "")
 
-            context_parts.append(
-                f"Source: {source} | Page: {page}\n{page_content}"
-            )
+            context_parts.append(f"Source: {source} | Page: {page}\n{text}")
 
         return "\n\n".join(context_parts)
-    
 
 
     def generate(self, query: str, context_chunks: list) -> str:

@@ -14,11 +14,22 @@ class ChunkEmbeddings:
         self.model = HuggingFaceEmbeddings(model_name=model_name)
 
     
-    def embed_chunks(self,chunks):
+    # def embed_chunks(self,chunks):
 
-        # texts = [chunk['page_content'] for chunk in chunks]
-        texts = chunks
+    #     # texts = [chunk['page_content'] for chunk in chunks]
+    #     texts = chunks
+        
+    #     embeddings = self.model.embed_documents(texts)
+
+    #     return embeddings
+
+
+    def embed_chunks(self, chunks):
+    # Extract plain text from dicts or strings
+        texts = [
+            chunk["text"] if isinstance(chunk, dict) else str(chunk)
+            for chunk in chunks
+        ]
         
         embeddings = self.model.embed_documents(texts)
-
         return embeddings

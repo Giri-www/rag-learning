@@ -1,0 +1,95 @@
+LangChain and LangSmith Guide
+
+WHAT IS LANGCHAIN?
+
+LangChain is an open-source framework designed to help developers build applications powered by large language models (LLMs). It provides tools, components, and interfaces that make it easier to combine LLMs with other sources of data and computation.
+
+LangChain was created by Harrison Chase and first released in October 2022. It quickly became one of the most popular frameworks for building LLM-powered applications due to its flexibility and extensive integrations.
+
+LangChain supports multiple programming languages including Python and JavaScript. The Python version is the most widely used and has the most features and integrations available.
+
+KEY FEATURES OF LANGCHAIN:
+
+LangChain provides a standard interface for interacting with many different LLMs including OpenAI GPT models, Anthropic Claude, Google Gemini, Meta LLaMA, Mistral, and many others. This allows developers to switch between models without rewriting their application logic.
+
+LangChain includes document loaders that can load data from many sources including PDF files, text files, Word documents, web pages, YouTube videos, databases, APIs, and more. This makes it easy to bring external data into LLM applications.
+
+LangChain provides text splitters that break large documents into smaller chunks suitable for embedding and retrieval. Common splitters include RecursiveCharacterTextSplitter, CharacterTextSplitter, and TokenTextSplitter.
+
+LangChain supports many embedding models and vector stores. Embeddings convert text into numerical vectors that capture semantic meaning. Vector stores like FAISS, Chroma, Pinecone, and Weaviate store these embeddings for fast similarity search.
+
+LangChain provides a chains concept that allows developers to combine multiple components into a pipeline. A chain might load a document, split it, embed it, store it in a vector store, retrieve relevant chunks, and pass them to an LLM to generate an answer.
+
+LangChain supports agents that can use tools to complete tasks. An agent uses an LLM to decide which tools to use and in what order. Tools can include web search, calculators, databases, APIs, and custom functions.
+
+LangChain provides memory components that allow applications to remember previous interactions. This is essential for building chatbots and conversational applications that need context from earlier in the conversation.
+
+LANGCHAIN EXPRESSION LANGUAGE (LCEL):
+
+LangChain Expression Language or LCEL is a declarative way to compose chains in LangChain. It uses the pipe operator to connect components together. LCEL supports streaming, async execution, parallel execution, and easy debugging.
+
+A simple LCEL chain might look like: prompt | model | output_parser. This takes a prompt template, passes it to a model, and parses the output into a usable format.
+
+RETRIEVAL AUGMENTED GENERATION WITH LANGCHAIN:
+
+LangChain is widely used for building Retrieval Augmented Generation or RAG applications. RAG combines the power of LLMs with the ability to retrieve relevant information from external documents.
+
+In a RAG application built with LangChain, documents are first loaded and split into chunks. These chunks are embedded using an embedding model and stored in a vector store. When a user asks a question, the question is embedded and used to search the vector store for relevant chunks. These chunks are then passed to an LLM along with the question to generate an accurate answer based on the document content.
+
+LangChain makes building RAG applications straightforward with its RetrievalQA chain and more advanced retrieval components. Developers can customize every step of the RAG pipeline including the retrieval strategy, the prompt template, and the generation model.
+
+LANGCHAIN INTEGRATIONS:
+
+LangChain integrates with over 100 LLM providers, 50 embedding model providers, 50 vector store providers, and hundreds of other tools and data sources. This makes it one of the most versatile frameworks for building LLM applications.
+
+Popular LangChain integrations include OpenAI for LLMs and embeddings, HuggingFace for open source models, FAISS and Chroma for vector storage, Pinecone for cloud vector storage, and Tavily for web search.
+
+WHAT IS LANGSMITH?
+
+LangSmith is a platform developed by LangChain for debugging, testing, evaluating, and monitoring LLM applications. It was created to help developers understand what is happening inside their LLM chains and agents, which can otherwise be difficult to debug due to their complexity.
+
+LangSmith provides full observability into LLM applications by capturing every step of a chain or agent execution including inputs, outputs, latency, token usage, and costs. This makes it much easier to identify and fix problems in LLM applications.
+
+KEY FEATURES OF LANGSMITH:
+
+LangSmith provides tracing that automatically captures the full execution trace of any LangChain application. Each trace shows every step in the pipeline including LLM calls, tool calls, retrieval steps, and more. Developers can drill down into any step to see exactly what happened.
+
+LangSmith includes a testing and evaluation framework that allows developers to create datasets of test cases and run their applications against them. This makes it easy to measure the performance of LLM applications and track improvements over time.
+
+LangSmith provides a prompt playground where developers can test and iterate on prompts interactively. The playground shows the full output of the prompt including token counts and costs.
+
+LangSmith includes monitoring features that track the performance of LLM applications in production. Developers can set up alerts for issues like high latency, high error rates, or unexpected outputs.
+
+LangSmith supports collaboration features that allow teams to share traces, datasets, and evaluation results. This makes it easier for teams to work together on LLM applications.
+
+HOW TO USE LANGSMITH:
+
+To use LangSmith, developers sign up for an account at smith.langchain.com and get an API key. They then set the LANGSMITH_TRACING environment variable to true and the LANGSMITH_API_KEY environment variable to their API key.
+
+Once these environment variables are set, LangChain automatically sends traces to LangSmith for every chain and agent execution. Developers can then view these traces in the LangSmith web interface.
+
+LangSmith has a free tier that allows developers to get started without paying. Paid tiers are available for teams and organizations that need more features and higher usage limits.
+
+LANGSMITH AND RAG EVALUATION:
+
+LangSmith is particularly useful for evaluating RAG applications. It can capture the retrieved documents, the prompt sent to the LLM, and the generated answer for every query. This makes it easy to identify cases where the retrieval is failing or where the LLM is not using the retrieved context correctly.
+
+LangSmith integrates with evaluation frameworks like RAGAS that provide metrics for measuring RAG performance including faithfulness, answer relevancy, context precision, and context recall.
+
+DIFFERENCE BETWEEN LANGCHAIN AND LANGSMITH:
+
+LangChain is a framework for building LLM applications while LangSmith is a platform for debugging and monitoring those applications. They are complementary tools developed by the same company.
+
+LangChain provides the building blocks for creating LLM applications including chains, agents, memory, and retrieval. LangSmith provides visibility into how those applications are performing and helps developers improve them over time.
+
+Developers can use LangChain without LangSmith but using both together provides a much better development experience. LangSmith makes it significantly easier to debug and improve LangChain applications.
+
+LANGCHAIN HUB:
+
+LangChain Hub is a repository of prompts, chains, and agents that developers can use as starting points for their own applications. It is accessible through the LangSmith platform and allows developers to share and discover useful LangChain components.
+
+Developers can pull prompts from LangChain Hub directly in their code using the hub.pull function. This makes it easy to use community-tested prompts in LangChain applications.
+
+SUMMARY:
+
+LangChain is the leading framework for building applications with large language models. It provides everything needed to build RAG applications, chatbots, agents, and other LLM-powered tools. LangSmith complements LangChain by providing the observability and evaluation tools needed to build production-quality LLM applications. Together they form a complete platform for developing, testing, and deploying LLM applications.

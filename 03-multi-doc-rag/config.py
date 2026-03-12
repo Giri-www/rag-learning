@@ -7,10 +7,10 @@ class Config:
 
     LLM_MODEL = "llama3"
 
-    CHUNK_SIZE = 800
-    CHUNK_OVERLAP = 150
+    CHUNK_SIZE = 400
+    CHUNK_OVERLAP = 80
 
-    TOP_K_RETRIEVAL = 20
+    TOP_K_RETRIEVAL = 10
     TOP_K_RERANK = 5
 
     DOC_PATH = "data"

@@ -16,7 +16,7 @@ def main():
         print("\nSources:")
 
         for s in sources:
-            print(f"{s['source']} page {s['page']}")
+            print(s)
 
 
 if __name__ == "__main__":

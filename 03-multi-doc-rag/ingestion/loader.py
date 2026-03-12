@@ -25,7 +25,7 @@ class DocumentLoader:
             text = page.extract_text()
             documents.append(
                 {
-                   "page_content":text,
+                   "text":text,
                    "source":file,
                    "page_num":page_num + 1,
 
@@ -41,7 +41,7 @@ class DocumentLoader:
             text = f.read()
         return [
             {
-                "page_content":text,
+                "text":text,
                 "source":file,
                 # "page_num":1,
             }
@@ -52,7 +52,7 @@ class DocumentLoader:
         df = pd.read_csv(path)
         return [
             {
-                "page_content":df.to_string(),
+                "text":df.to_string(),
                 "source":file,
                 # "page_num":1,
             }

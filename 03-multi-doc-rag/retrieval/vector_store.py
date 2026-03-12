@@ -23,7 +23,7 @@ class VectorStore:
             embeddings = embeddings.reshape(1, -1)  # if it is, we reshape it to a 2D array with a single row because faiss expects 2D arrays
         
         self.index.add(embeddings)
-        self.metadata.append(chunks)
+        self.metadata.extend(chunks)
 
     def search(self, query, k=5):
         """ 
