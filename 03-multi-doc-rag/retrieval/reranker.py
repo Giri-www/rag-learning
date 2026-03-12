@@ -12,9 +12,10 @@ class Reranker:
 
         if not chunks:
             return []
-        
+       
+       
         #create query document-pairs
-        pairs = [(query,chunk['page_content']) for chunk in chunks]
+        pairs = [(query,chunk) for chunk in chunks]
 
         #predicat the relavant score 
         scores = self.model.predict(pairs)

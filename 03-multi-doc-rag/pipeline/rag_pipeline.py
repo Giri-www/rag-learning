@@ -32,8 +32,10 @@ class RAGPipeline:
 
         self.vectorstore.add(embeddings,chunks)
 
-        self.retriever = Retriver(self.chunk_embeddings,self.vectorstore,Config.TOP_K_RETRIEVAL)
+        # self.retriever = Retriver(self.chunk_embeddings,self.vectorstore,Config.TOP_K_RETRIEVAL)
 
+        self.retriever = Retriver(self.vectorstore,Config.EMBEDDING_MODEL,Config.TOP_K_RETRIEVAL)
+        
         self.reranker = Reranker(Config.RERANK_MODEL,Config.TOP_K_RETRIEVAL)
 
         self.llm = OllamaLLM(Config.LLM_MODEL)

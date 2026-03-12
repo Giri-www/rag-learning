@@ -13,12 +13,12 @@ class Retriver :
 
     def __init__(self,vectorstore,model_name=Config.EMBEDDING_MODEL,top_k=Config.TOP_K_RETRIEVAL):
         self.vectorstore = vectorstore
-        self.model_name = HuggingFaceEmbeddings(model_name)
+        self.model = HuggingFaceEmbeddings(model_name=model_name)
         self.top_k = top_k
 
     def retrieve(self,query):
        """ Retrieve  relevant chunks from vectorstore """
-       qry_embeddings  = self.model.encode([query])
+       qry_embeddings  = self.model.embed_query(query)
 
        results = self.vectorstore.search(qry_embeddings,self.top_k)
 

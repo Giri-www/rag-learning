@@ -25,7 +25,7 @@ class VectorStore:
         self.index.add(embeddings)
         self.metadata.append(chunks)
 
-    def search(self, query, k=10,return_distances=False):
+    def search(self, query, k=5):
         """ 
         Search for similar document chunks to the query 
         """
@@ -37,10 +37,13 @@ class VectorStore:
 
         distances, indices = self.index.search(query, k)   #  Search for k nearest neighbors  closest to the query #indicies meaning position of the nearest neighbors
 
-        if return_distances:
-            return self.metadata[indices[0]], distances[0]
-        else:
-            return self.metadata[indices[0]]
+        result = []
+
+        for idx in indices[0]:
+            if 0 <= idx < len(self.metadata):
+                result.append(self.metadata[idx])
+        
+        return result
 
     def save(self,path_index="inedex.faiss",path_metadata="metadata.npy"): 
         """ 

@@ -5,7 +5,7 @@ class Config:
     EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
     RERANK_MODEL = "BAAI/bge-reranker-base"
 
-    OLLAMA_MODEL = "llama3"
+    LLM_MODEL = "llama3"
 
     CHUNK_SIZE = 800
     CHUNK_OVERLAP = 150
