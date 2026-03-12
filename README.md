@@ -63,7 +63,7 @@ rag-learning-lab
 Clone the repository:
 
 ```
-git clone https://github.com/yourusername/rag-learning-lab.git
+git clone https://github.com/giri-www/rag-learning.git
 ```
 
 Install dependencies:
