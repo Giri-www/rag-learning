@@ -3,12 +3,12 @@ Chunker is a function that takes in a document and returns a list of chunks.
 
 """
 
-from config import chunk_size,chunk_overlap
+from config import Config
 
 class DocumentChunker:
-    def __init__(self,chunk_size,chunk_overlap):
-        self.chunk_size = chunk_size
-        self.chunk_overlap = chunk_overlap
+    def __init__(self,CHUNK_SIZE,CHUNK_OVERLAP):
+        self.chunk_size = CHUNK_SIZE
+        self.chunk_overlap = CHUNK_OVERLAP
     
     def chunk_documents(self,documents):
         chunks = []

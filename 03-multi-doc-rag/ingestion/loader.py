@@ -7,7 +7,7 @@ Specially designed for loading multiple documents.
 
 import os 
 from pypdf import PdfReader
-import docx
+# import doc
 import pandas as pd
 
 
@@ -21,7 +21,7 @@ class DocumentLoader:
         documents = []
         reader = PdfReader(path)
 
-        for page_num,page in enumerate(page_num, reader.pages):
+        for page_num,page in enumerate(reader.pages):
             text = page.extract_text()
             documents.append(
                 {

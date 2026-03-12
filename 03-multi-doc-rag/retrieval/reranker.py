@@ -1,11 +1,10 @@
 
 
 from langchain_community.cross_encoders import HuggingFaceCrossEncoder
-from config import  RERANK_MODEL, TOP_K_RETRIEVAL
-
+from config import  *
 class Reranker:
 
-    def __init__(self, model_name=RERANK_MODEL,top_k=TOP_K_RETRIEVAL):
+    def __init__(self, model_name=Config.RERANK_MODEL,top_k=Config.TOP_K_RETRIEVAL):
         self.model = HuggingFaceCrossEncoder(model_name=model_name)
         self.top_k = top_k
 
@@ -21,6 +20,6 @@ class Reranker:
         scores = self.model.predict(pairs)
 
         #Combine chunks & store 
-        ranked_results = sorted(zip(chunks,scores)key=lambda x:x[1],reverse=True)
+        ranked_results = sorted(zip(chunks,scores),key=lambda x:x[1],reverse=True)
 
         return [chunk for chunk,_ in ranked_results][:self.top_k]

@@ -5,13 +5,13 @@ Retrieves the most relevant document chunks for a user query.
     ** Handles query embedding and vector search retrieval.
 """
 
-from config import EMBEDDING_MODEL, TOP_K_RETRIEVAL
+from config import *
 from langchain_huggingface import HuggingFaceEmbeddings
 
 
 class Retriver :
 
-    def __init__(self,vectorstore,model_name=EMBEDDING_MODEL,top_k=TOP_K_RETRIEVAL):
+    def __init__(self,vectorstore,model_name=Config.EMBEDDING_MODEL,top_k=Config.TOP_K_RETRIEVAL):
         self.vectorstore = vectorstore
         self.model_name = HuggingFaceEmbeddings(model_name)
         self.top_k = top_k
