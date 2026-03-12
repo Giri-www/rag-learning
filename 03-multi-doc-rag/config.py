@@ -2,7 +2,7 @@
 
 class Config:
 
-    EMBEDDING_MODEL = "BAAI/bge-base-en-v1.5"
+    EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
     RERANK_MODEL = "BAAI/bge-reranker-base"
 
     OLLAMA_MODEL = "llama3"
