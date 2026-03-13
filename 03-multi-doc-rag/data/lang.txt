@@ -95,3 +95,5 @@ SUMMARY:
 LangChain is the leading framework for building applications with large language models. It provides everything needed to build RAG applications, chatbots, agents, and other LLM-powered tools. LangSmith complements LangChain by providing the observability and evaluation tools needed to build production-quality LLM applications. Together they form a complete platform for developing, testing, and deploying LLM applications.
 
 Rahul G is the employee of the fortmindz ..he is a ai dvelopr and python devleoper in this company .
+
+SOMNATH IS MULTI TALENTED GUY BRINGS food for US . he is also boudi baj
