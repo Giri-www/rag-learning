@@ -1,6 +1,7 @@
 streamlit
 langchain
 faiss-cpu
-PyPDF2
-openai
-python-docx
+sentence-transformers
+rank-bm25
+pypdf
+ollama
