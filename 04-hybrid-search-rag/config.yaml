@@ -1,0 +1,11 @@
+embedding_model: "BAAI/bge-base-en-v1.5"
+
+llm_model: "llama3"
+
+chunk_size: 800
+chunk_overlap: 150
+
+top_k: 5
+
+log_file: "logs/rag.log"
+log_level: "INFO"
