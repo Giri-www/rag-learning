@@ -1,4 +1,8 @@
 import streamlit as st
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 from core.loader import DocumentLoader
 from core.embeddings import EmbeddingModel
@@ -13,7 +17,7 @@ st.title("Enterprise Hybrid RAG")
 
 loader = DocumentLoader()
 
-docs = loader.load()
+docs = loader.load_documents()
 
 emb = EmbeddingModel().get()
 
