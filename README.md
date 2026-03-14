@@ -1,4 +1,4 @@
-# RAG Learning  🚀
+# RAG Learning Industry Standard Approach🚀
 
 A hands-on repository for learning **Retrieval-Augmented Generation (RAG)** from beginner to advanced level.
 
