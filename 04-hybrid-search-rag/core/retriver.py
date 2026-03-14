@@ -1,10 +1,12 @@
+from langsmith import traceable
+
 class HybridRetriever:
 
     def __init__(self, vectorstore, keyword_search):
 
         self.vectorstore = vectorstore
         self.keyword = keyword_search
-
+    @traceable
     def retrieve(self, query):
 
         vector_docs = self.vectorstore.similarity_search(query, k=5)
